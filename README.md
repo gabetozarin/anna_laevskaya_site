@@ -36,7 +36,7 @@ Myofascial Release Therapy for pain management and healing
 
 ## 📧 Contact
 - **Email:** anna@myofascial.com
-- **Phone:** +1 (234) 567-8900
+- **Phone:** +351 936 299 236
 - **Hours:** Monday - Friday: 9:00 AM - 7:00 PM | Saturday: 9:00 AM - 4:00 PM
 
 ---
