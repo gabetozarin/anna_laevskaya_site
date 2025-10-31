@@ -35,7 +35,7 @@ Myofascial Release Therapy for pain management and healing
 - Accent: Healing blues and whites
 
 ## 📧 Contact
-- **Email:** anna@myofascialhealing.com
+- **Email:** anna@myofascial.com
 - **Phone:** +1 (234) 567-8900
 - **Hours:** Monday - Friday: 9:00 AM - 7:00 PM | Saturday: 9:00 AM - 4:00 PM
 
