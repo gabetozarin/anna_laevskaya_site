@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="15" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+  
+  <!-- Healing hands -->
+  <path d="M10 18c0-2 1-3 2-4s3-1 4 0 3 1 4 0s2 2 2 4c0 2-1 3-2 4s-3 1-4 0-3-1-4 0-2-2-2-4z" fill="white"/>
+  
+  <!-- Small highlight -->
+  <ellipse cx="13.5" cy="16" rx="1.5" ry="2" fill="#ecf9ff" opacity="0.8" transform="rotate(20 13.5 16)"/>
+</svg>
