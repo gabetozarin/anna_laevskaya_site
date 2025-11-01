@@ -223,7 +223,8 @@ body {
 /* Remove default black focus outline on the send button */
 .btn-primary:focus,
 .btn-primary:focus-visible {
-    outline: none;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 .btn-primary {
