@@ -44,40 +44,40 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Testimonials carousel
+    // Testimonials carousel (simple show/hide with dots)
     let currentSlide = 0;
     const testimonials = document.querySelectorAll('.testimonial-card');
     const dots = document.querySelectorAll('.dot');
-    
+
     function showSlide(index) {
         // Hide all testimonials
         testimonials.forEach(testimonial => {
             testimonial.classList.remove('active');
         });
-        
+
         // Remove active class from all dots
         dots.forEach(dot => {
             dot.classList.remove('active');
         });
-        
+
         // Show current testimonial and activate dot
         if (testimonials[index]) {
             testimonials[index].classList.add('active');
             dots[index].classList.add('active');
         }
-        
+
         currentSlide = index;
     }
-    
+
     // Auto-advance testimonials
     function nextSlide() {
         currentSlide = (currentSlide + 1) % testimonials.length;
         showSlide(currentSlide);
     }
-    
+
     // Set up auto-advance timer
     let slideInterval = setInterval(nextSlide, 5000);
-    
+
     // Add click handlers to dots
     dots.forEach((dot, index) => {
         dot.addEventListener('click', function() {
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
             slideInterval = setInterval(nextSlide, 5000);
         });
     });
-    
+
     // Global function for dot clicks (referenced in HTML)
     window.currentSlide = function(index) {
         clearInterval(slideInterval);
