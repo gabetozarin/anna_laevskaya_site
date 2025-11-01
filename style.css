@@ -220,6 +220,12 @@ body {
     overflow: hidden;
 }
 
+/* Remove default black focus outline on the send button */
+.btn-primary:focus,
+.btn-primary:focus-visible {
+    outline: none;
+}
+
 .btn-primary {
     background: linear-gradient(135deg, #c4653f, #a84f28);
     color: white;
