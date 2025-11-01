@@ -44,55 +44,66 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Testimonials carousel (simple show/hide with dots)
+    // Testimonials carousel with smooth transitions
     let currentSlide = 0;
     const testimonials = document.querySelectorAll('.testimonial-card');
     const dots = document.querySelectorAll('.dot');
+    let slideInterval;
 
-    function showSlide(index) {
-        // Hide all testimonials
+    function showSlide(n) {
         testimonials.forEach(testimonial => {
             testimonial.classList.remove('active');
         });
-
-        // Remove active class from all dots
+        
         dots.forEach(dot => {
             dot.classList.remove('active');
         });
 
-        // Show current testimonial and activate dot
-        if (testimonials[index]) {
-            testimonials[index].classList.add('active');
-            dots[index].classList.add('active');
-        }
+        if (n >= testimonials.length) currentSlide = 0;
+        if (n < 0) currentSlide = testimonials.length - 1;
 
-        currentSlide = index;
+        testimonials[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
     }
 
-    // Auto-advance testimonials
     function nextSlide() {
-        currentSlide = (currentSlide + 1) % testimonials.length;
+        currentSlide++;
         showSlide(currentSlide);
     }
 
-    // Set up auto-advance timer
-    let slideInterval = setInterval(nextSlide, 5000);
+    function currentSlideFunc(n) {
+        currentSlide = n - 1;
+        showSlide(currentSlide);
+        resetSlideTimer();
+    }
 
-    // Add click handlers to dots
+    function resetSlideTimer() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 5000);
+    }
+
+    // Add click events to dots
     dots.forEach((dot, index) => {
-        dot.addEventListener('click', function() {
-            clearInterval(slideInterval);
-            showSlide(index);
-            slideInterval = setInterval(nextSlide, 5000);
-        });
+        dot.addEventListener('click', () => currentSlideFunc(index + 1));
     });
 
-    // Global function for dot clicks (referenced in HTML)
-    window.currentSlide = function(index) {
-        clearInterval(slideInterval);
-        showSlide(index - 1); // Convert to 0-based index
-        slideInterval = setInterval(nextSlide, 5000);
-    };
+    // Auto-slide functionality
+    slideInterval = setInterval(nextSlide, 5000);
+
+    // Pause auto-slide on hover
+    const testimonialSection = document.querySelector('.testimonials-carousel');
+    if (testimonialSection) {
+        testimonialSection.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+
+        testimonialSection.addEventListener('mouseleave', () => {
+            resetSlideTimer();
+        });
+    }
+
+    // Make currentSlide function global for dot navigation
+    window.currentSlide = currentSlideFunc;
     
     // Contact form handling
     const contactForm = document.getElementById('contactForm');
